@@ -21,7 +21,7 @@ const caseProfile = {
     "742 Dinah Ave, Wonderland, OX",
     "1090 Oakridge Blvd, Looking Glass, OX",
     "315 Englan Dr, Wonderland, OX",
-    "8842 Magnolia Ave, Underland, OX",
+    "8842 This Way Ave, Underland, OX",
     "510 Tiger Lily Pkwy, Rabbit Hollow, OX"
   ]),
   phoneNumber: pick(["(951) 555-0148", "(951) 555-0192", "(951) 555-0174", "(909) 555-0136", "(951) 555-0183"]),
@@ -66,7 +66,7 @@ const caseProfile = {
     "4500 Medical Center Dr",
     "880 Suite Pkwy",
     "1220 Lobster Ave, Suite 300",
-    "6900 Rockton Ave",
+    "6900 That Way Ave",
     "2450 Tiger Lily Blvd"
   ]),
   npi: pick(["1234567890", "9876543210", "4561237890", "7894561230", "3216549870"]),
