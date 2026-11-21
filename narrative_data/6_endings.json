@@ -1,1 +1,23 @@
+{
+  "endings": [
+    {
+      "id": "approved",
+      "min_percent": 80,
+      "title": "✅ ENDING 1: CLAIM APPROVED (80%+)",
+      "summary": "Every verification check—from identity and CPT codes to provider NPI and policy benefits—matched your dossier! Your claim is fully approved with zero delays."
+    },
+    {
+      "id": "semi_approved",
+      "min_percent": 50,
+      "title": "⚠️ ENDING 2: SEMI-APPROVED (50% – 79%)",
+      "summary": "Most of your information checked out, though one or two mismatched details require follow-up documentation before full reimbursement is released."
+    },
+    {
+      "id": "denied",
+      "min_percent": 0,
+      "title": "🛑 ENDING 3: CLAIM DENIED (Below 50%)",
+      "summary": "Too many verification mismatches occurred during the call. Your claim has been denied and will need to be corrected and resubmitted."
+    }
+  ]
+}
 
