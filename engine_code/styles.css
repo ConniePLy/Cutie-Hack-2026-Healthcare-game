@@ -4,7 +4,7 @@
    Example when ready: --img-bg-main: url("../media_assets/bg_main.png");
    ========================================================= */
 :root {
-  --img-bg-main: none;
+  --img-bg-main: url("../media_assets/PH_BACKGROUND.png");
   --img-deco-prop: none;
   --img-card-item: none;
   --img-textbox-frame: none;
