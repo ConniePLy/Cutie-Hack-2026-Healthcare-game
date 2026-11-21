@@ -1,1 +1,31 @@
+{
+  "stage": "medical_procedure",
+  "title": "2. Medical Procedure Information",
+  "scenarios": [
+    {
+      "id": "proc_cpt_check",
+      "prompt": "REP: 'I see your Date of Service and Diagnosis. Please confirm the exact CPT Procedure Code billed for this visit.'",
+      "option_pool": [
+        { "text": "Confirm CPT-73721 (Knee MRI w/o Contrast).", "requires": { "procedureCode": "CPT-73721" } },
+        { "text": "Confirm CPT-43235 (Outpatient Upper Endoscopy).", "requires": { "procedureCode": "CPT-43235" } },
+        { "text": "Confirm CPT-74177 (CT Scan Abdomen & Pelvis).", "requires": { "procedureCode": "CPT-74177" } },
+        { "text": "Confirm CPT-93306 (Comprehensive Echocardiogram).", "requires": { "procedureCode": "CPT-93306" } },
+        { "text": "Confirm CPT-62323 (Lumbar Epidural Steroid Injection).", "requires": { "procedureCode": "CPT-62323" } }
+      ],
+      "right_reply": "REP: 'Confirmed! That CPT procedure code matches your ICD-10 diagnosis and date of service.'",
+      "wrong_reply": "REP: 'That CPT code doesn't match the clinical summary on your claim.'"
+    },
+    {
+      "id": "proc_necessity_check",
+      "prompt": "REP: 'For this CPT code and diagnosis, is signed Medical Necessity Documentation already attached to your packet?'",
+      "option_pool": [
+        { "text": "Yes, signed Medical Necessity Documentation is attached.", "requires": { "hasMedNecessityDoc": true } },
+        { "text": "No, Medical Necessity Documentation is missing—requesting a physician fax.", "requires": { "hasMedNecessityDoc": false } },
+        { "text": "Tell the rep medical necessity isn't required for diagnostic procedures.", "requires": { "always_wrong": true } }
+      ],
+      "right_reply": "REP: 'Thank you for confirming the exact status of your medical necessity paperwork!'",
+      "wrong_reply": "REP: 'Check your clinical notes again—that doesn't match whether the necessity doc is attached.'"
+    }
+  ]
+}
 
