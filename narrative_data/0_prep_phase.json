@@ -1,1 +1,19 @@
 
+{
+  "stage": "prep_phase",
+  "title": "0. Pre-Call Document Prep",
+  "scenarios": [
+    {
+      "id": "prep_gather_packet",
+      "prompt": "SYSTEM: Before dialing insurance support, organize the patient's ID card, clinical summary, provider info, itemized invoice, and policy booklet onto your notepad.",
+      "choices": [
+        {
+          "text": "Compile full patient dossier onto Call Prep Notes & Dial"
+        },
+        {
+          "text": "Review all 5 healthcare folders and place the call"
+        }
+      ]
+    }
+  ]
+}
