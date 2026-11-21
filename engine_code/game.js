@@ -18,11 +18,11 @@ const caseProfile = {
   dob: pick(["04/12/1988", "11/23/1995", "07/08/1979", "02/19/2001", "09/30/1984"]),
   insuranceName: "Ace Insurance",
   homeAddress: pick([
-    "742 Evergreen Ave, Riverside, CA",
-    "1090 Oakridge Blvd, Moreno Valley, CA",
-    "315 Canyon Crest Dr, Riverside, CA",
-    "8842 Magnolia Ave, Corona, CA",
-    "510 University Pkwy, San Bernardino, CA"
+    "742 Dinah Ave, Wonderland, OX",
+    "1090 Oakridge Blvd, Looking Glass, OX",
+    "315 Englan Dr, Wonderland, OX",
+    "8842 Magnolia Ave, Underland, OX",
+    "510 Tiger Lily Pkwy, Rabbit Hollow, OX"
   ]),
   phoneNumber: pick(["(951) 555-0148", "(951) 555-0192", "(951) 555-0174", "(909) 555-0136", "(951) 555-0183"]),
   groupNumber: pick(["GRP-402", "GRP-915", "GRP-770", "GRP-218", "GRP-654"]),
@@ -49,25 +49,25 @@ const caseProfile = {
 
   // 3. Healthcare Provider Information
   facilityName: pick([
-    "Riverside Valley Clinic",
-    "Magnolia General Hospital",
-    "Inland Empire Outpatient Center",
-    "Canyon Springs Medical Group",
-    "Box Springs Surgical Pavilion"
+    "Underland Alley Clinic",
+    "Oysters' Memorial Hospital",
+    "Regina White Outpatient Center",
+    "Knave's Medical Group",
+    "Fox Springs Surgical Pavilion"
   ]),
   physicianName: pick([
-    "Dr. Elena Rostova",
-    "Dr. Marcus Vance",
-    "Dr. Priya Nair",
+    "Dr. Regina White",
+    "Dr. March Lepus",
+    "Dr. Montgomery Yurtle",
     "Dr. David Okafor",
-    "Dr. Hannah Cho"
+    "Dr. Bill Chimney"
   ]),
   providerAddress: pick([
     "4500 Medical Center Dr",
-    "880 Canyon Springs Pkwy",
-    "1220 Iowa Ave, Suite 300",
-    "6900 Brockton Ave",
-    "2450 Alessandro Blvd"
+    "880 Suite Pkwy",
+    "1220 Lobster Ave, Suite 300",
+    "6900 Rockton Ave",
+    "2450 Tiger Lily Blvd"
   ]),
   npi: pick(["1234567890", "9876543210", "4561237890", "7894561230", "3216549870"]),
   isInNetwork: Math.random() < 0.5,
