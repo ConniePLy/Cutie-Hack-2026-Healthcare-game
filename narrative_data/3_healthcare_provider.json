@@ -1,1 +1,31 @@
 
+{
+  "stage": "healthcare_provider",
+  "title": "3. Healthcare Provider Information",
+  "scenarios": [
+    {
+      "id": "prov_npi_check",
+      "prompt": "REP: 'To verify the treating Physician and Facility Address, please read off their 10-digit National Provider Identifier (NPI).'",
+      "option_pool": [
+        { "text": "Provide NPI 1234567890.", "requires": { "npi": "1234567890" } },
+        { "text": "Provide NPI 9876543210.", "requires": { "npi": "9876543210" } },
+        { "text": "Provide NPI 4561237890.", "requires": { "npi": "4561237890" } },
+        { "text": "Provide NPI 7894561230.", "requires": { "npi": "7894561230" } },
+        { "text": "Provide NPI 3216549870.", "requires": { "npi": "3216549870" } }
+      ],
+      "right_reply": "REP: 'NPI verified! The physician and facility address match our provider registry.'",
+      "wrong_reply": "REP: 'That 10-digit NPI doesn't match the physician or clinic listed on the claim.'"
+    },
+    {
+      "id": "prov_network_check",
+      "prompt": "REP: 'And according to your directory check, is this facility participating as In-Network or Out-of-Network?'",
+      "option_pool": [
+        { "text": "Confirm the provider is IN-NETWORK.", "requires": { "isInNetwork": true } },
+        { "text": "Confirm the provider is OUT-OF-NETWORK.", "requires": { "isInNetwork": false } },
+        { "text": "State that network status doesn't affect billing.", "requires": { "always_wrong": true } }
+      ],
+      "right_reply": "REP: 'Spot on! We've applied the exact network tier for this facility.'",
+      "wrong_reply": "REP: 'Careful—our directory shows the opposite network participation status for that clinic!'"
+    }
+  ]
+}
