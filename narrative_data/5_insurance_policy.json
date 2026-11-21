@@ -1,1 +1,32 @@
 
+{
+  "stage": "insurance_policy",
+  "title": "5. Insurance Policy Information",
+  "scenarios": [
+    {
+      "id": "policy_plan_type",
+      "prompt": "REP: 'Final step: confirm your exact Plan Type (HMO, PPO, EPO, POS, or HDHP) along with your Effective Dates and Copay.'",
+      "option_pool": [
+        { "text": "Confirm HMO Plan.", "requires": { "planType": "HMO" } },
+        { "text": "Confirm PPO Plan.", "requires": { "planType": "PPO" } },
+        { "text": "Confirm EPO Plan.", "requires": { "planType": "EPO" } },
+        { "text": "Confirm POS Plan.", "requires": { "planType": "POS" } },
+        { "text": "Confirm HDHP Plan.", "requires": { "planType": "HDHP" } }
+      ],
+      "right_reply": "REP: 'Plan type, effective coverage dates, and copay benefits all check out!'",
+      "wrong_reply": "REP: 'That plan type doesn't match the coverage listed on your policy card.'"
+    },
+    {
+      "id": "policy_auth_and_deductible",
+      "prompt": "REP: 'And confirm whether your annual Deductible is already met and if Prior Authorization is approved.'",
+      "option_pool": [
+        { "text": "Deductible is MET and Prior Authorization is APPROVED.", "requires": { "deductibleMet": true, "hasPriorAuth": true } },
+        { "text": "Deductible is MET, but Prior Authorization is NOT approved.", "requires": { "deductibleMet": true, "hasPriorAuth": false } },
+        { "text": "Deductible is UNMET, and Prior Authorization is APPROVED.", "requires": { "deductibleMet": false, "hasPriorAuth": true } },
+        { "text": "Deductible is UNMET, and Prior Authorization is NOT approved.", "requires": { "deductibleMet": false, "hasPriorAuth": false } }
+      ],
+      "right_reply": "REP: 'Everything aligns with your policy terms! Submitting your claim for final decision...'",
+      "wrong_reply": "REP: 'Mismatch on either your deductible progress or prior authorization status!'"
+    }
+  ]
+}
