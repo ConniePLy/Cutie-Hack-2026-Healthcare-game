@@ -21,10 +21,10 @@
       "prompt": "REP: 'Before I open your claim file, please read off your exact Member ID number from your insurance card.'",
       "option_pool": [
         { "text": "Read Member ID HF-12345678.", "requires": { "memberId": "HF-12345678" } },
-        { "text": "Read Member ID BC-331094.", "requires": { "memberId": "BC-331094" } },
-        { "text": "Read Member ID UN-550129.", "requires": { "memberId": "UN-550129" } },
-        { "text": "Read Member ID AE-719402.", "requires": { "memberId": "AE-719402" } },
-        { "text": "Read Member ID CG-604815.", "requires": { "memberId": "CG-604815" } }
+        { "text": "Read Member ID BC-33109467.", "requires": { "memberId": "BC-331094" } },
+        { "text": "Read Member ID UN-55012969.", "requires": { "memberId": "UN-550129" } },
+        { "text": "Read Member ID AE-71940223.", "requires": { "memberId": "AE-719402" } },
+        { "text": "Read Member ID CG-60481508.", "requires": { "memberId": "CG-604815" } }
       ],
       "right_reply": "REP: 'Got it! Your Member ID, insurance plan, and contact details are verified.'",
       "wrong_reply": "REP: 'That Member ID isn't coming up under your name and date of birth.'"
