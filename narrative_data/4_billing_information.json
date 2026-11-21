@@ -1,1 +1,30 @@
 
+{
+  "stage": "billing_information",
+  "title": "4. Billing Information",
+  "scenarios": [
+    {
+      "id": "bill_itemized_and_receipt",
+      "prompt": "REP: 'Looking at your Total Bill and Amount Paid: do you have an Itemized Bill and Proof of Payment ready?'",
+      "option_pool": [
+        { "text": "Yes, I have BOTH the Itemized Bill and Proof of Payment.", "requires": { "hasItemizedBill": true, "hasProofOfPayment": true } },
+        { "text": "I have the Itemized Bill, but NO Proof of Payment receipt.", "requires": { "hasItemizedBill": true, "hasProofOfPayment": false } },
+        { "text": "I have Proof of Payment, but NO Itemized Bill yet.", "requires": { "hasItemizedBill": false, "hasProofOfPayment": true } },
+        { "text": "I have NEITHER an Itemized Bill nor Proof of Payment yet.", "requires": { "hasItemizedBill": false, "hasProofOfPayment": false } }
+      ],
+      "right_reply": "REP: 'Thank you for the accurate billing breakdown—I've logged your exact invoice and receipt status.'",
+      "wrong_reply": "REP: 'Hmm, what you have on file doesn't match what you just reported for your itemized bill or receipt.'"
+    },
+    {
+      "id": "bill_coordination_check",
+      "prompt": "REP: 'Before we finalize the balance, do you have any Other Insurance Coverage (secondary plan) to coordinate?'",
+      "option_pool": [
+        { "text": "Yes, I have dual/other insurance coverage to coordinate.", "requires": { "hasOtherInsurance": true } },
+        { "text": "No, this is my sole insurance policy (no other coverage).", "requires": { "hasOtherInsurance": false } },
+        { "text": "Ask the rep to bill every insurer twice just in case.", "requires": { "always_wrong": true } }
+      ],
+      "right_reply": "REP: 'Got it! Coordination of benefits is logged accurately.'",
+      "wrong_reply": "REP: 'Check your billing notes—your secondary insurance status doesn't match!'"
+    }
+  ]
+}
