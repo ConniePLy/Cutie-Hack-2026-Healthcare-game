@@ -1,1 +1,33 @@
 
+{
+  "stage": "identity_verification",
+  "title": "1. Identity Verification",
+  "scenarios": [
+    {
+      "id": "id_group_check",
+      "prompt": "REP: 'Thank you for calling support. To verify your account, confirm your Group Number along with your Name, DOB, Home Address, and Phone Number.'",
+      "option_pool": [
+        { "text": "Confirm Group Number GRP-402 with my Name, DOB, Address, and Phone.", "requires": { "groupNumber": "GRP-402" } },
+        { "text": "Confirm Group Number GRP-915 with my Name, DOB, Address, and Phone.", "requires": { "groupNumber": "GRP-915" } },
+        { "text": "Confirm Group Number GRP-770 with my Name, DOB, Address, and Phone.", "requires": { "groupNumber": "GRP-770" } },
+        { "text": "Confirm Group Number GRP-218 with my Name, DOB, Address, and Phone.", "requires": { "groupNumber": "GRP-218" } },
+        { "text": "Confirm Group Number GRP-654 with my Name, DOB, Address, and Phone.", "requires": { "groupNumber": "GRP-654" } }
+      ],
+      "right_reply": "REP: 'Thank you! Your Group Number, Member ID, DOB, and address all match our records.'",
+      "wrong_reply": "REP: 'Hmm, that Group Number does not match the policy on file.'"
+    },
+    {
+      "id": "id_member_check",
+      "prompt": "REP: 'Before I open your claim file, please read off your exact Member ID number from your insurance card.'",
+      "option_pool": [
+        { "text": "Read Member ID HF-884920.", "requires": { "memberId": "HF-884920" } },
+        { "text": "Read Member ID BC-331094.", "requires": { "memberId": "BC-331094" } },
+        { "text": "Read Member ID UN-550129.", "requires": { "memberId": "UN-550129" } },
+        { "text": "Read Member ID AE-719402.", "requires": { "memberId": "AE-719402" } },
+        { "text": "Read Member ID CG-604815.", "requires": { "memberId": "CG-604815" } }
+      ],
+      "right_reply": "REP: 'Got it! Your Member ID, insurance plan, and contact details are verified.'",
+      "wrong_reply": "REP: 'That Member ID isn't coming up under your name and date of birth.'"
+    }
+  ]
+}
