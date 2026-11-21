@@ -1,1 +1,206 @@
 
+/* =========================================================
+   1. GENERIC PNG ASSET SLOTS (Swap 'none' for url(...) later!)
+   Example when ready: --img-bg-main: url("../media_assets/bg_main.png");
+   ========================================================= */
+:root {
+  --img-bg-main: none;
+  --img-deco-prop: none;
+  --img-card-item: none;
+  --img-textbox-frame: none;
+  --img-btn-option: none;
+}
+
+/* =========================================================
+   2. FULL-SCREEN BACKGROUND
+   ========================================================= */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: system-ui, -apple-system, sans-serif;
+
+  /* Placeholder color + Generic PNG slot */
+  background-color: #232931;
+  background-image: var(--img-bg-main);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* =========================================================
+   3. MAIN WORKSPACE & NON-INTERACTABLE DECORATION
+   ========================================================= */
+.desk-workspace {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  max-width: 960px;
+  width: 100%;
+  padding: 24px;
+  box-sizing: border-box;
+  align-items: flex-start;
+}
+
+/* Non-interactable decoration image */
+.deco-item {
+  width: 90px;
+  height: 90px;
+  pointer-events: none; /* Strictly non-interactable: clicks pass right through */
+  user-select: none;
+
+  /* Placeholder dashed box + Generic PNG slot */
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  background-image: var(--img-deco-prop);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* =========================================================
+   4. LEFT COLUMN: QUESTION TEXT BOX + 3 ANSWER BUTTONS
+   ========================================================= */
+.phone-container {
+  flex: 1.4;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  color: #e6edf3;
+  font-size: 13px;
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+/* Question / Output Text Box */
+#output-box {
+  width: 100%;
+  height: 250px;
+  padding: 16px;
+  border-radius: 10px;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #f0f6fc;
+  resize: none;
+  box-sizing: border-box;
+
+  /* Placeholder dark screen + Generic PNG slot */
+  background-color: #161b22;
+  border: 2px solid #444c56;
+  background-image: var(--img-textbox-frame);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/* Container for the 3 Interactable Answer Buttons */
+.choices-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Individual Interactable Answer Button (1 Right, 2 Wrong) */
+.choice-btn {
+  width: 100%;
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.1s ease, filter 0.15s ease;
+
+  /* Placeholder blue button + Generic PNG slot */
+  background-color: #1f6feb;
+  border: 2px solid #58a6ff;
+  background-image: var(--img-btn-option);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.choice-btn:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+}
+
+.choice-btn:active {
+  transform: translateY(1px);
+}
+
+/* =========================================================
+   5. RIGHT COLUMN: SERIES OF INTERACTABLE SQUARES (CLUE CARDS)
+   ========================================================= */
+.paper-note-container {
+  flex: 1;
+  min-width: 280px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 16px;
+  border-radius: 12px;
+  color: #f0f6fc;
+}
+
+.paper-note-container h3 {
+  margin: 0 0 12px 0;
+  font-size: 15px;
+}
+
+/* Grid of clickable squares */
+#notes-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+/* Each Interactable Square (expands/reveals text when clicked!) */
+.note-item {
+  min-height: 85px;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #1f2328;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  overflow: hidden;
+
+  /* Placeholder sticky-note square + Generic PNG slot */
+  background-color: #fff3b0;
+  border: 2px solid #d4a72c;
+  background-image: var(--img-card-item);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.note-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Hides the detailed dossier text inside each square until clicked */
+.note-item .note-details {
+  display: none;
+  margin-top: 6px;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  padding-top: 6px;
+}
+
+.note-item.open {
+  grid-column: span 2; /* Expands full width when clicked so text is easy to read */
+}
+
+.note-item.open .note-details {
+  display: block;
+}
