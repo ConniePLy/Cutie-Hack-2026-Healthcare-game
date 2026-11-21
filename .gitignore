@@ -1,1 +1,18 @@
 
+# Operating System hidden files
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+Desktop.ini
+
+# Code Editor settings (VS Code, JetBrains, etc.)
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary & log files
+*.log
+*.tmp
+.cache/
