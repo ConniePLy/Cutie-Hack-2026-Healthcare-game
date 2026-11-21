@@ -15,4 +15,4 @@ How to play
      
 Project Structure:
 
-Credits: Connie Ly, Catherine Zhang, 
+Credits: Connie Ly, Catherine Zhang, Lorenzo Padro

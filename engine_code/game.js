@@ -102,6 +102,7 @@ const caseProfile = {
 
 // 2. PERCENTAGE SCORE TRACKING
 let currentStageIndex = 0;
+let currentScenarioIndex = 0;
 let correctAnswers = 0;
 let totalQuestions = 0;
 let endingsData = [];
@@ -159,7 +160,7 @@ function buildSemiRandomChoices(pool) {
   const nonMatching = pool.filter((opt) => !isChoiceCorrect(opt));
 
   const chosenRight = matching.length > 0 ? [pick(matching)] : [];
-  const chosenWrong = shuffleArray(nonMatching).slice(0, 2);
+  const chosenWrong = shuffleArray(nonMatching).slice(0, 4);
 
   return shuffleArray([...chosenRight, ...chosenWrong]);
 }
@@ -183,7 +184,10 @@ async function loadNextStage() {
   try {
     const res = await fetch(STAGE_FILES[currentStageIndex]);
     const stageData = await res.json();
-    const scenario = pick(stageData.scenarios);
+    const scenario = currentStageIndex === 1
+      ? stageData.scenarios[currentScenarioIndex]
+      : pick(stageData.scenarios);
+
 
     updateStatusBar(stageData.title || `Stage ${currentStageIndex}`);
     logOutput(`--- ${(stageData.title || stageData.stage).toUpperCase()} ---`);
@@ -253,8 +257,14 @@ function handleChoiceSelection(choice, scenario) {
     }
   }
 
+  if (currentStageIndex === 1 && currentScenarioIndex < 5) {
+  currentScenarioIndex++;
+} else {
   currentStageIndex++;
-  setTimeout(loadNextStage, 700);
+  currentScenarioIndex = 0;
+}
+
+setTimeout(loadNextStage, 700);
 }
 
 // 3. THREE ENDINGS BASED ON PERCENTAGE SCORE
