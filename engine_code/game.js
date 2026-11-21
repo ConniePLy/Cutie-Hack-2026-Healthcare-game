@@ -16,7 +16,7 @@ const caseProfile = {
   memberId: pick(["HF-884920", "BC-331094", "UN-550129", "AE-719402", "CG-604815"]),
   patientName: "Alice Lidell,
   dob: pick(["04/12/1988", "11/23/1995", "07/08/1979", "02/19/2001", "09/30/1984"]),
-  insuranceName: pick(["HealthFirst Blue", "CareShield Gold", "UnitedMetro Health", "AetnaPlus Select", "CignaCare Premier"]),
+  insuranceName: "Ace Insurance",
   homeAddress: pick([
     "742 Evergreen Ave, Riverside, CA",
     "1090 Oakridge Blvd, Moreno Valley, CA",
