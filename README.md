@@ -4,6 +4,7 @@ Demo link:
 a simulation of Navigating the health care system
 
 How to play
+
   0. prepare your phone call
   1. enter the ID verification
   2. enter correct medical procedure information
