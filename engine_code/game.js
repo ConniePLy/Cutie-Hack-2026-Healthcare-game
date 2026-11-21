@@ -1,5 +1,3 @@
-// 
-
 const STAGE_FILES = [
   "narrative_data/0_prep_phase.json",
   "narrative_data/1_identity_verification.json",
@@ -10,51 +8,102 @@ const STAGE_FILES = [
 ];
 const ENDINGS_FILE = "narrative_data/6_endings.json";
 
-// 1. RANDOMIZED PATIENT DOSSIER (Covers all 5 healthcare categories)
+// 1. RANDOMIZED PATIENT DOSSIER (5 elements per pick() array across all 5 categories!)
 const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
 const caseProfile = {
   // 1. Identity Verification
-  memberId: pick(["HF-884920", "BC-331094", "UN-550129"]),
-  patientName: pick(["Jordan Taylor", "Alex Rivera"]),
-  dob: pick(["04/12/1988", "11/23/1995"]),
-  insuranceName: pick(["HealthFirst Blue", "CareShield Gold"]),
-  homeAddress: pick(["742 Evergreen Ave", "1090 Oakridge Blvd"]),
-  phoneNumber: pick(["(951) 555-0148", "(951) 555-0192"]),
-  groupNumber: pick(["GRP-402", "GRP-915", "GRP-770"]),
+  memberId: pick(["HF-884920", "BC-331094", "UN-550129", "AE-719402", "CG-604815"]),
+  patientName: pick(["Jordan Taylor", "Alex Rivera", "Samira Patel", "Marcus Chen", "Elena Morales"]),
+  dob: pick(["04/12/1988", "11/23/1995", "07/08/1979", "02/19/2001", "09/30/1984"]),
+  insuranceName: pick(["HealthFirst Blue", "CareShield Gold", "UnitedMetro Health", "AetnaPlus Select", "CignaCare Premier"]),
+  homeAddress: pick([
+    "742 Evergreen Ave, Riverside, CA",
+    "1090 Oakridge Blvd, Moreno Valley, CA",
+    "315 Canyon Crest Dr, Riverside, CA",
+    "8842 Magnolia Ave, Corona, CA",
+    "510 University Pkwy, San Bernardino, CA"
+  ]),
+  phoneNumber: pick(["(951) 555-0148", "(951) 555-0192", "(951) 555-0174", "(909) 555-0136", "(951) 555-0183"]),
+  groupNumber: pick(["GRP-402", "GRP-915", "GRP-770", "GRP-218", "GRP-654"]),
 
   // 2. Medical Procedure Information
-  dateOfService: pick(["10/14/2026", "11/02/2026"]),
-  procedureName: pick(["Knee MRI w/o Contrast", "Outpatient Endoscopy"]),
-  diagnosis: pick(["Acute Meniscus Tear", "Chronic Gastritis"]),
-  procedureCode: pick(["CPT-73721", "CPT-43235"]),
-  diagnosisCode: pick(["ICD-10: S83.241A", "ICD-10: K29.70"]),
+  dateOfService: pick(["10/14/2026", "11/02/2026", "09/28/2026", "11/15/2026", "10/03/2026"]),
+  procedureName: pick([
+    "Knee MRI w/o Contrast",
+    "Outpatient Upper Endoscopy",
+    "CT Scan Abdomen & Pelvis",
+    "Comprehensive Echocardiogram",
+    "Lumbar Epidural Steroid Injection"
+  ]),
+  diagnosis: pick([
+    "Acute Medial Meniscus Tear",
+    "Chronic Unspecified Gastritis",
+    "Acute Right Lower Quadrant Pain",
+    "Atypical Chest Pain / Palpitations",
+    "Lumbar Radiculopathy"
+  ]),
+  procedureCode: pick(["CPT-73721", "CPT-43235", "CPT-74177", "CPT-93306", "CPT-62323"]),
+  diagnosisCode: pick(["ICD-10: S83.241A", "ICD-10: K29.70", "ICD-10: R10.31", "ICD-10: R07.89", "ICD-10: M54.16"]),
   hasMedNecessityDoc: Math.random() < 0.5,
 
   // 3. Healthcare Provider Information
-  facilityName: pick(["Riverside Valley Clinic", "Magnolia General Hospital"]),
-  physicianName: pick(["Dr. Elena Rostova", "Dr. Marcus Vance"]),
-  providerAddress: pick(["4500 Medical Center Dr", "880 Canyon Springs Pkwy"]),
-  npi: pick(["1234567890", "9876543210"]),
+  facilityName: pick([
+    "Riverside Valley Clinic",
+    "Magnolia General Hospital",
+    "Inland Empire Outpatient Center",
+    "Canyon Springs Medical Group",
+    "Box Springs Surgical Pavilion"
+  ]),
+  physicianName: pick([
+    "Dr. Elena Rostova",
+    "Dr. Marcus Vance",
+    "Dr. Priya Nair",
+    "Dr. David Okafor",
+    "Dr. Hannah Cho"
+  ]),
+  providerAddress: pick([
+    "4500 Medical Center Dr",
+    "880 Canyon Springs Pkwy",
+    "1220 Iowa Ave, Suite 300",
+    "6900 Brockton Ave",
+    "2450 Alessandro Blvd"
+  ]),
+  npi: pick(["1234567890", "9876543210", "4561237890", "7894561230", "3216549870"]),
   isInNetwork: Math.random() < 0.5,
 
   // 4. Billing Information
-  totalBill: pick(["$1,450.00", "$2,800.00"]),
+  totalBill: pick(["$1,450.00", "$2,800.00", "$920.00", "$3,640.00", "$1,180.00"]),
   hasItemizedBill: Math.random() < 0.5,
-  amountPaid: pick(["$0.00", "$250.00"]),
+  amountPaid: pick(["$0.00", "$150.00", "$250.00", "$400.00", "$75.00"]),
   hasProofOfPayment: Math.random() < 0.5,
   hasOtherInsurance: Math.random() < 0.5,
 
   // 5. Insurance Policy Information
-  planType: pick(["HMO", "PPO"]),
-  effectiveDates: pick(["01/01/2026 - 12/31/2026", "06/01/2026 - 05/31/2027"]),
+  planType: pick(["HMO", "PPO", "EPO", "POS", "HDHP"]),
+  effectiveDates: pick([
+    "01/01/2026 - 12/31/2026",
+    "06/01/2026 - 05/31/2027",
+    "03/01/2026 - 02/28/2027",
+    "09/01/2026 - 08/31/2027",
+    "07/01/2026 - 06/30/2027"
+  ]),
   deductibleMet: Math.random() < 0.5,
-  copayAmount: pick(["$30 Specialist Copay", "$50 Specialist Copay"]),
+  copayAmount: pick([
+    "$20 Specialist Copay",
+    "$35 Specialist Copay",
+    "$50 Specialist Copay",
+    "$0 (Deductible Met)",
+    "20% Coinsurance"
+  ]),
   hasPriorAuth: Math.random() < 0.5
 };
 
+
+// 2. PERCENTAGE SCORE TRACKING
 let currentStageIndex = 0;
-let stats = { accuracy: 0, trust: 0, risk: 0 };
+let correctAnswers = 0;
+let totalQuestions = 0;
 let endingsData = [];
 
 const outputBox = document.getElementById("output-box");
@@ -68,10 +117,16 @@ function logOutput(text) {
   outputBox.scrollTop = outputBox.scrollHeight;
 }
 
+function getScorePercent() {
+  if (totalQuestions === 0) return 0;
+  return Math.round((correctAnswers / totalQuestions) * 100);
+}
+
 function updateStatusBar(stageText) {
   if (stageLabel) stageLabel.textContent = `Stage: ${stageText}`;
   if (statsLabel) {
-    statsLabel.textContent = `Accuracy: ${stats.accuracy} | Trust: ${stats.trust} | Risk: ${stats.risk}`;
+    const pct = getScorePercent();
+    statsLabel.textContent = `Score: ${correctAnswers}/${totalQuestions} (${pct}%)`;
   }
 }
 
@@ -99,18 +154,13 @@ function isChoiceCorrect(choice) {
   return true;
 }
 
-// SEMI-RANDOM OPTION BUILDER: Pulls 1 matching right answer + 2 random wrong decoys
 function buildSemiRandomChoices(pool) {
   const matching = pool.filter((opt) => isChoiceCorrect(opt));
   const nonMatching = pool.filter((opt) => !isChoiceCorrect(opt));
 
-  // Pick 1 valid right answer (if available)
   const chosenRight = matching.length > 0 ? [pick(matching)] : [];
-
-  // Shuffle the wrong answers and pick up to 2 decoys
   const chosenWrong = shuffleArray(nonMatching).slice(0, 2);
 
-  // Combine and shuffle button positions so the right answer isn't always first
   return shuffleArray([...chosenRight, ...chosenWrong]);
 }
 
@@ -119,8 +169,9 @@ async function initGame() {
     const res = await fetch(ENDINGS_FILE);
     endingsData = (await res.json()).endings || [];
   } catch (err) {
-    console.warn("Using fallback endings.");
+    console.warn("Using built-in endings.");
   }
+  updateStatusBar("0. Prep Phase");
   logOutput("SYSTEM: Review your desk folders in Stage 0 before calling the insurer.");
   loadNextStage();
 }
@@ -138,7 +189,6 @@ async function loadNextStage() {
     logOutput(`--- ${(stageData.title || stageData.stage).toUpperCase()} ---`);
     logOutput(scenario.prompt);
 
-    // Stage 0 shows all prep buttons; Stages 1-5 pull 1 right + 2 random wrong options
     const rawPool = scenario.option_pool || scenario.choices;
     const buttonsToRender =
       currentStageIndex === 0 ? rawPool : buildSemiRandomChoices(rawPool);
@@ -159,6 +209,7 @@ async function loadNextStage() {
 function handleChoiceSelection(choice, scenario) {
   logOutput(`YOU: "${choice.text}"`);
 
+  // Stage 0 (Prep Phase) is unscored and reveals the patient packet
   if (currentStageIndex === 0) {
     notesList.innerHTML = "";
     addPrepNote("1. Identity", [
@@ -188,17 +239,16 @@ function handleChoiceSelection(choice, scenario) {
       `Deductible: ${caseProfile.deductibleMet ? "✅ Met" : "❌ Unmet"} | Copay: ${caseProfile.copayAmount}`,
       `Prior Auth: ${caseProfile.hasPriorAuth ? "✅ Approved" : "❌ None"}`
     ]);
-    logOutput("SYSTEM: Full patient packet copied to your Call Prep Notes! Dialing now...");
+    logOutput("SYSTEM: Patient dossier added to your Call Prep Notes! Dialing now...");
   } else {
+    // Stages 1-5: Count total questions & correct answers
+    totalQuestions++;
     const correct = isChoiceCorrect(choice);
+
     if (correct) {
-      stats.accuracy += 2;
-      stats.trust += 1;
-      // Uses choice-specific reply if present, otherwise falls back to scenario-level reply
+      correctAnswers++;
       logOutput(`✅ ${choice.right_reply || scenario.right_reply}`);
     } else {
-      stats.risk += 2;
-      stats.accuracy -= 1;
       logOutput(`⚠️ ${choice.wrong_reply || scenario.wrong_reply}`);
     }
   }
@@ -207,17 +257,32 @@ function handleChoiceSelection(choice, scenario) {
   setTimeout(loadNextStage, 700);
 }
 
+// 3. THREE ENDINGS BASED ON PERCENTAGE SCORE
 function showFinalEnding() {
-  updateStatusBar("Call Complete");
-  logOutput("=== CALL DISCONNECTED: FINAL OUTCOME ===");
+  const finalPercent = getScorePercent();
+  updateStatusBar(`Call Complete (${finalPercent}%)`);
+  logOutput(`=== CALL DISCONNECTED | FINAL SCORE: ${correctAnswers}/${totalQuestions} (${finalPercent}%) ===`);
 
   let ending;
-  if (stats.risk >= 4) {
-    ending = endingsData || { title: "Ending 1: Claim Flagged for Audit", summary: "Mismatched policy, billing, or coding details caused an audit hold." };
-  } else if (stats.accuracy >= 6) {
-    ending = endingsData || { title: "Ending 2: Seamless Claim Approval", summary: "Every verification check matched your dossier! Claim approved in full." };
+
+  if (finalPercent >= 80) {
+    // 80% and above -> APPROVED
+    ending = endingsData.find((e) => e.id === "approved") || {
+      title: "✅ ENDING 1: CLAIM APPROVED (80%+)",
+      summary: "Your information matched across almost every verification check. Your procedure and coverage are fully approved!"
+    };
+  } else if (finalPercent >= 50) {
+    // 50% to 79% -> SEMI-APPROVED
+    ending = endingsData.find((e) => e.id === "semi_approved") || {
+      title: "⚠️ ENDING 2: SEMI-APPROVED (50% - 79%)",
+      summary: "Most of your claim cleared, though one or two mismatched details require follow-up paperwork before full payout."
+    };
   } else {
-    ending = endingsData || { title: "Ending 3: Pending Manual Review", summary: "Your claim was accepted with minor discrepancies and requires follow-up." };
+    // Below 50% -> DENIED
+    ending = endingsData.find((e) => e.id === "denied") || {
+      title: "🛑 ENDING 3: CLAIM DENIED (Below 50%)",
+      summary: "Too many verification mismatches occurred during the call. Your claim was denied and must be resubmitted."
+    };
   }
 
   logOutput(`${ending.title}\n${ending.summary}`);
@@ -228,6 +293,3 @@ function showFinalEnding() {
   restartBtn.onclick = () => location.reload();
   choicesBox.appendChild(restartBtn);
 }
-
-initGame();
-
