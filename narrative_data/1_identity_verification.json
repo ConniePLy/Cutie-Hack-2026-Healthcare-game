@@ -20,7 +20,7 @@
       "id": "id_member_check",
       "prompt": "REP: 'Before I open your claim file, please read off your exact Member ID number from your insurance card.'",
       "option_pool": [
-        { "text": "Read Member ID HF-884920.", "requires": { "memberId": "HF-884920" } },
+        { "text": "Read Member ID HF-12345678.", "requires": { "memberId": "HF-12345678" } },
         { "text": "Read Member ID BC-331094.", "requires": { "memberId": "BC-331094" } },
         { "text": "Read Member ID UN-550129.", "requires": { "memberId": "UN-550129" } },
         { "text": "Read Member ID AE-719402.", "requires": { "memberId": "AE-719402" } },
@@ -28,6 +28,20 @@
       ],
       "right_reply": "REP: 'Got it! Your Member ID, insurance plan, and contact details are verified.'",
       "wrong_reply": "REP: 'That Member ID isn't coming up under your name and date of birth.'"
-    }
+    },
+    {
+  "id": "id_patient_name_check",
+  "prompt": "REP: 'Thank you for calling support. Please confirm the full name of the patient on this account.'",
+  "option_pool": [
+    { "text": "The patient's name is Alice Lidell.", "requires": { "patientName": "Alice Lidell" } },
+    { "text": "The patient's name is Regina  Red.", "requires": { "patientName": "Regina Red" } },
+    { "text": "The patient's name is Lewis Carol.", "requires": { "patientName": "Lewis Carol" } },
+    { "text": "The patient's name is Jackie Wong.", "requires": { "patientName": "Jackie Wong" } },
+    { "text": "The patient's name is Matthew D. Hatter.", "requires": { "patientName": "Matthew D. Hatter" } }
+  ],
+  "right_reply": "REP: 'Thank you! I have Alice Lidell's subscriber file pulled up right here.'",
+  "wrong_reply": "REP: 'Hmm, that name does not match the patient listed on this policy.'"
+}
+
   ]
 }
