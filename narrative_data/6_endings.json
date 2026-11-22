@@ -4,13 +4,13 @@
       "id": "approved",
       "min_percent": 80,
       "title": "✅ ENDING 1: CLAIM APPROVED (80%+)",
-      "summary": "Every verification check—from identity and CPT codes to provider NPI and policy benefits—matched your dossier! Your claim is fully approved with zero delays."
+      "summary": "Congratulations! You successfully verified enough information to secure approval of Alice's claim. Your documentation has been accepted!"
     },
     {
       "id": "semi_approved",
       "min_percent": 50,
-      "title": "⚠️ ENDING 2: SEMI-APPROVED (50% – 79%)",
-      "summary": "Most of your information checked out, though one or two mismatched details require follow-up documentation before full reimbursement is released."
+      "title": "⚠️ ENDING 2: CLAIM PARTIALLY APPROVED (50% - 79%)",
+      "summary": "Your claim has been partially approved, but several discrepancies require additional documentation before the remaining reimbursement can be processed."
     },
     {
       "id": "denied",
