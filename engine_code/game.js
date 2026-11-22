@@ -241,7 +241,7 @@ const caseProfile = {
     "20% Coinsurance"
   ]),
   hasPriorAuth: Math.random() < 0.5
-};*/
+};
 
 // Score and stage tracking
 let currentStageIndex = 0;
