@@ -4,44 +4,82 @@
   "title": "1. Identity Verification",
   "scenarios": [
     {
-      "id": "id_group_check",
-      "prompt": "REP: 'Thank you for calling support. To verify your account, confirm your Group Number along with your Name, DOB, Home Address, and Phone Number.'",
+      "id": "id_name_check",
+      "prompt": "REP: Welcome to ACE-Insurance! May I have your full name, please?",
       "option_pool": [
-        { "text": "Confirm Group Number GRP-402 with my Name, DOB, Address, and Phone.", "requires": { "groupNumber": "GRP-402" } },
-        { "text": "Confirm Group Number GRP-915 with my Name, DOB, Address, and Phone.", "requires": { "groupNumber": "GRP-915" } },
-        { "text": "Confirm Group Number GRP-770 with my Name, DOB, Address, and Phone.", "requires": { "groupNumber": "GRP-770" } },
-        { "text": "Confirm Group Number GRP-218 with my Name, DOB, Address, and Phone.", "requires": { "groupNumber": "GRP-218" } },
-        { "text": "Confirm Group Number GRP-654 with my Name, DOB, Address, and Phone.", "requires": { "groupNumber": "GRP-654" } }
+        {"text": "Alice Liddell", "requires": {"patientName": "Alice Liddell"}},
+        {"text": "Regina Red", "requires": {"patientName": "Regina Red"}},
+        {"text": "Lewis Carol", "requires": {"patientName": "Lewis Carol"}},
+        {"text": "Jackie Wong", "requires": {"patientName": "Jackie Wong"}},
+        {"text": "Matthew D. Hatter", "requires": {"patientName": "Matthew D. Hatter"}}
       ],
-      "right_reply": "REP: 'Thank you! Your Group Number, Member ID, DOB, and address all match our records.'",
-      "wrong_reply": "REP: 'Hmm, that Group Number does not match the policy on file.'"
+      "right_reply": "REP: Thank you. Let me verify your date of birth.",
+      "wrong_reply": "REP: That name doesn't match the information on file."
+    },
+    {
+      "id": "id_dob_check",
+      "prompt": "REP: Could you confirm your date of birth?",
+      "option_pool": [
+        {"text": "07/28/1951", "requires": {"dob": "07/28/1951"}},
+        {"text": "04/12/1988", "requires": {"dob": "04/12/1988"}},
+        {"text": "11/23/1995", "requires": {"dob": "11/23/1995"}},
+        {"text": "02/19/2001", "requires": {"dob": "02/19/2001"}},
+        {"text": "09/30/1984", "requires": {"dob": "09/30/1984"}}
+      ],
+      "right_reply": "REP: Perfect. Your date of birth matches our records.",
+      "wrong_reply": "REP: That date of birth doesn't match our records."
     },
     {
       "id": "id_member_check",
-      "prompt": "REP: 'Before I open your claim file, please read off your exact Member ID number from your insurance card.'",
+      "prompt": "REP: Please provide your Member ID from your insurance card.",
       "option_pool": [
-        { "text": "Read Member ID HF-12345678.", "requires": { "memberId": "HF-12345678" } },
-        { "text": "Read Member ID BC-33109467.", "requires": { "memberId": "BC-331094" } },
-        { "text": "Read Member ID UN-55012969.", "requires": { "memberId": "UN-550129" } },
-        { "text": "Read Member ID AE-71940223.", "requires": { "memberId": "AE-719402" } },
-        { "text": "Read Member ID CG-60481508.", "requires": { "memberId": "CG-604815" } }
+        {"text": "12345678", "requires": {"memberId": "12345678"}},
+        {"text": "87654321", "requires": {"memberId": "87654321"}},
+        {"text": "13572468", "requires": {"memberId": "13572468"}},
+        {"text": "24681357", "requires": {"memberId": "24681357"}},
+        {"text": "98765432", "requires": {"memberId": "98765432"}}
       ],
-      "right_reply": "REP: 'Got it! Your Member ID, insurance plan, and contact details are verified.'",
-      "wrong_reply": "REP: 'That Member ID isn't coming up under your name and date of birth.'"
+      "right_reply": "REP: Thank you. I've located your insurance account.",
+      "wrong_reply": "REP: That Member ID doesn't match the account information."
     },
     {
-  "id": "id_patient_name_check",
-  "prompt": "REP: 'Thank you for calling support. Please confirm the full name of the patient on this account.'",
-  "option_pool": [
-    { "text": "The patient's name is Alice Lidell.", "requires": { "patientName": "Alice Lidell" } },
-    { "text": "The patient's name is Regina  Red.", "requires": { "patientName": "Regina Red" } },
-    { "text": "The patient's name is Lewis Carol.", "requires": { "patientName": "Lewis Carol" } },
-    { "text": "The patient's name is Jackie Wong.", "requires": { "patientName": "Jackie Wong" } },
-    { "text": "The patient's name is Matthew D. Hatter.", "requires": { "patientName": "Matthew D. Hatter" } }
-  ],
-  "right_reply": "REP: 'Thank you! I have Alice Lidell's subscriber file pulled up right here.'",
-  "wrong_reply": "REP: 'Hmm, that name does not match the patient listed on this policy.'"
-}
-
+      "id": "id_group_check",
+      "prompt": "REP: What is the Group Number listed on your insurance card?",
+      "option_pool": [
+        {"text": "GRP-402", "requires": {"groupNumber": "GRP-402"}},
+        {"text": "GRP-915", "requires": {"groupNumber": "GRP-915"}},
+        {"text": "GRP-770", "requires": {"groupNumber": "GRP-770"}},
+        {"text": "GRP-218", "requires": {"groupNumber": "GRP-218"}},
+        {"text": "GRP-654", "requires": {"groupNumber": "GRP-654"}}
+      ],
+      "right_reply": "REP: Great. Your Group Number matches the policy.",
+      "wrong_reply": "REP: That Group Number doesn't match the policy on file."
+    },
+    {
+      "id": "id_address_check",
+      "prompt": "REP: Could you verify your home address?",
+      "option_pool": [
+        {"text": "742 Dinah Ave, Wonderland, OX", "requires": {"homeAddress": "742 Dinah Ave, Wonderland, OX"}},
+        {"text": "1090 Oakridge Blvd, Looking Glass, OX", "requires": {"homeAddress": "1090 Oakridge Blvd, Looking Glass, OX"}},
+        {"text": "315 Englan Dr, Wonderland, OX", "requires": {"homeAddress": "315 Englan Dr, Wonderland, OX"}},
+        {"text": "8842 This Way Ave, Underland, OX", "requires": {"homeAddress": "8842 This Way Ave, Underland, OX"}},
+        {"text": "510 Tiger Lily Pkwy, Rabbit Hollow, OX", "requires": {"homeAddress": "510 Tiger Lily Pkwy, Rabbit Hollow, OX"}}
+      ],
+      "right_reply": "REP: Thank you. Your address matches our records.",
+      "wrong_reply": "REP: That address doesn't match the one we have on file."
+    },
+    {
+      "id": "id_phone_check",
+      "prompt": "REP: Finally, could you confirm the phone number associated with your account?",
+      "option_pool": [
+        {"text": "(951) 555-0148", "requires": {"phoneNumber": "(951) 555-0148"}},
+        {"text": "(951) 555-0192", "requires": {"phoneNumber": "(951) 555-0192"}},
+        {"text": "(951) 555-0174", "requires": {"phoneNumber": "(951) 555-0174"}},
+        {"text": "(909) 555-0136", "requires": {"phoneNumber": "(909) 555-0136"}},
+        {"text": "(951) 555-0183", "requires": {"phoneNumber": "(951) 555-0183"}}
+      ],
+      "right_reply": "REP: Thank you. We've completed the identity verification process. Let's discuss your medical claim.",
+      "wrong_reply": "REP: That phone number doesn't match our records. Let's move on to your claim."
+    }
   ]
 }

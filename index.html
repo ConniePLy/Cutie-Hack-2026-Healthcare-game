@@ -1,1 +1,102 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACE-Insurance | Alice's Claim</title>
+  <link rel="stylesheet" href="engine_code/styles.css">
+</head>
+<body>
+
+  <header class="game-header">
+    <h1>ACE-Insurance</h1>
+    <p>Down the Rabbit Hole of Healthcare Claims</p>
+  </header>
+
+  <div class="status">
+    <span id="stage-label">Stage: Loading...</span>
+    <span id="stats-label">Score: 0/0 (0%)</span>
+  </div>
+
+  <main class="game-area">
+
+    <!-- Hand-drawn desk and objects -->
+    <div class="art-layer phone-art"></div>
+    <div class="art-layer folder-art"></div>
+    <div class="art-layer card-art"></div>
+    <div class="art-layer cloud-art"></div>
+    <div class="art-layer cat-art"></div>
+
+    <!-- Clickable areas -->
+    <button id="phone-hotspot" class="hotspot"
+            aria-label="Call the Cheshire Cat"
+            title="Call the Cheshire Cat"></button>
+
+    <button id="folder-hotspot" class="hotspot"
+            aria-label="Open medical records"
+            title="Open medical records"></button>
+
+    <button id="card-hotspot" class="hotspot"
+            aria-label="View insurance card"
+            title="View insurance card"></button>
+
+    <!-- Dialogue transcript in the cloud -->
+    <section class="dialogue-area">
+      <textarea id="output-box" readonly
+                aria-label="Insurance call transcript"></textarea>
+    </section>
+
+    <!-- Player's choices -->
+    <section class="response-area">
+      <h2>Your Response</h2>
+      <div id="choices-box"></div>
+    </section>
+
+    <!-- Supporting documents popup -->
+    <section id="documents-popup" class="documents-popup" hidden>
+      <div class="documents-header">
+        <h2>Alice's Supporting Documents</h2>
+        <button id="close-documents" type="button">✕</button>
+      </div>
+      <div id="notes-list"></div>
+    </section>
+
+  </main>
+
+  <script src="engine_code/game.js"></script>
+
+  <script>
+    const documentsPopup =
+      document.getElementById("documents-popup");
+
+    document.getElementById("folder-hotspot")
+      .addEventListener("click", () => {
+        documentsPopup.hidden = false;
+      });
+
+    document.getElementById("card-hotspot")
+      .addEventListener("click", () => {
+        documentsPopup.hidden = false;
+      });
+
+    document.getElementById("close-documents")
+      .addEventListener("click", () => {
+        documentsPopup.hidden = true;
+      });
+
+    document.getElementById("phone-hotspot")
+      .addEventListener("click", () => {
+        const firstChoice =
+          document.querySelector("#choices-box .choice-btn");
+
+        if (firstChoice &&
+            typeof currentStageIndex !== "undefined" &&
+            currentStageIndex === 0) {
+          firstChoice.click();
+        }
+      });
+  </script>
+
+</body>
+</html>

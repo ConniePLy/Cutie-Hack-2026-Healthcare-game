@@ -13,7 +13,7 @@
         { "text": "Provide NPI 7894561230.", "requires": { "npi": "7894561230" } },
         { "text": "Provide NPI 3216549870.", "requires": { "npi": "3216549870" } }
       ],
-      "right_reply": "REP: 'NPI verified! The physician and facility address match our provider registry.'",
+      "right_reply": "REP: 'NPI verified! We've identified the treating healthcare provider.'",
       "wrong_reply": "REP: 'That 10-digit NPI doesn't match the physician or clinic listed on the claim.'"
     },
     {

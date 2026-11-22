@@ -5,7 +5,7 @@
   "scenarios": [
     {
       "id": "policy_plan_type",
-      "prompt": "REP: 'Final step: confirm your exact Plan Type (HMO, PPO, EPO, POS, or HDHP) along with your Effective Dates and Copay.'",
+      "prompt": "REP: 'Final step: could you confirm your insurance Plan Type (HMO, PPO, EPO, POS, or HDHP)?'",
       "option_pool": [
         { "text": "Confirm HMO Plan.", "requires": { "planType": "HMO" } },
         { "text": "Confirm PPO Plan.", "requires": { "planType": "PPO" } },
@@ -13,7 +13,7 @@
         { "text": "Confirm POS Plan.", "requires": { "planType": "POS" } },
         { "text": "Confirm HDHP Plan.", "requires": { "planType": "HDHP" } }
       ],
-      "right_reply": "REP: 'Plan type, effective coverage dates, and copay benefits all check out!'",
+      "right_reply": "REP: 'Thank you! Your plan type matches the policy on file.'",
       "wrong_reply": "REP: 'That plan type doesn't match the coverage listed on your policy card.'"
     },
     {
