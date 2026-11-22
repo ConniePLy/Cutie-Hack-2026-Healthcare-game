@@ -158,8 +158,8 @@ const selectedCase = pick(CASES);
 const caseProfile = {
   // 1. Identity Verification
   memberId: pick(["HF-884920", "BC-331094", "UN-550129", "AE-719402", "CG-604815"]),
-  patientName: "Alice Lidell",
-  dob: pick(["04/12/1988", "11/23/1995", "07/08/1979", "02/19/2001", "09/30/1984"]),
+  patientName: "Alice Liddell",
+  dob: "07/28/1951",
   insuranceName: "Ace Insurance",
   homeAddress: pick([
     "742 Dinah Ave, Wonderland, OX",
