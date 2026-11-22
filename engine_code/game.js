@@ -156,11 +156,92 @@ const CASES = [
 const selectedCase = pick(CASES);
 
 const caseProfile = {
-  ...selectedCase,
-  patientName: "Alice Liddell",
-  dob: "07/28/1951",
-  memberId: "12345678"
-};
+  // 1. Identity Verification
+  memberId: pick(["HF-884920", "BC-331094", "UN-550129", "AE-719402", "CG-604815"]),
+  patientName: "Alice Lidell",
+  dob: pick(["04/12/1988", "11/23/1995", "07/08/1979", "02/19/2001", "09/30/1984"]),
+  insuranceName: "Ace Insurance",
+  homeAddress: pick([
+    "742 Dinah Ave, Wonderland, OX",
+    "1090 Oakridge Blvd, Looking Glass, OX",
+    "315 Englan Dr, Wonderland, OX",
+    "8842 This Way Ave, Underland, OX",
+    "510 Tiger Lily Pkwy, Rabbit Hollow, OX"
+  ]),
+  phoneNumber: pick(["(951) 555-0148", "(951) 555-0192", "(951) 555-0174", "(909) 555-0136", "(951) 555-0183"]),
+  groupNumber: pick(["GRP-402", "GRP-915", "GRP-770", "GRP-218", "GRP-654"]),
+
+  // 2. Medical Procedure Information
+  dateOfService: pick(["10/14/2026", "11/02/2026", "09/28/2026", "11/15/2026", "10/03/2026"]),
+  procedureName: pick([
+    "Knee MRI w/o Contrast",
+    "Outpatient Upper Endoscopy",
+    "CT Scan Abdomen & Pelvis",
+    "Comprehensive Echocardiogram",
+    "Lumbar Epidural Steroid Injection"
+  ]),
+  diagnosis: pick([
+    "Acute Medial Meniscus Tear",
+    "Chronic Unspecified Gastritis",
+    "Acute Right Lower Quadrant Pain",
+    "Atypical Chest Pain / Palpitations",
+    "Lumbar Radiculopathy"
+  ]),
+  procedureCode: pick(["CPT-73721", "CPT-43235", "CPT-74177", "CPT-93306", "CPT-62323"]),
+  diagnosisCode: pick(["ICD-10: S83.241A", "ICD-10: K29.70", "ICD-10: R10.31", "ICD-10: R07.89", "ICD-10: M54.16"]),
+  hasMedNecessityDoc: Math.random() < 0.5,
+
+  // 3. Healthcare Provider Information
+  facilityName: pick([
+    "Underland Alley Clinic",
+    "Oysters' Memorial Hospital",
+    "Regina White Outpatient Center",
+    "Knave's Medical Group",
+    "Fox Springs Surgical Pavilion"
+  ]),
+  physicianName: pick([
+    "Dr. Regina White",
+    "Dr. March Lepus",
+    "Dr. Montgomery Yurtle",
+    "Dr. David Okafor",
+    "Dr. Bill Chimney"
+  ]),
+  providerAddress: pick([
+    "4500 Medical Center Dr",
+    "880 Suite Pkwy",
+    "1220 Lobster Ave, Suite 300",
+    "6900 That Way Ave",
+    "2450 Tiger Lily Blvd"
+  ]),
+  npi: pick(["1234567890", "9876543210", "4561237890", "7894561230", "3216549870"]),
+  isInNetwork: Math.random() < 0.5,
+
+  // 4. Billing Information
+  totalBill: pick(["$1,450.00", "$2,800.00", "$920.00", "$3,640.00", "$1,180.00"]),
+  hasItemizedBill: Math.random() < 0.5,
+  amountPaid: pick(["$0.00", "$150.00", "$250.00", "$400.00", "$75.00"]),
+  hasProofOfPayment: Math.random() < 0.5,
+  hasOtherInsurance: Math.random() < 0.5,
+
+  // 5. Insurance Policy Information
+  planType: pick(["HMO", "PPO", "EPO", "POS", "HDHP"]),
+  effectiveDates: pick([
+    "01/01/2026 - 12/31/2026",
+    "06/01/2026 - 05/31/2027",
+    "03/01/2026 - 02/28/2027",
+    "09/01/2026 - 08/31/2027",
+    "07/01/2026 - 06/30/2027"
+  ]),
+  deductibleMet: Math.random() < 0.5,
+  copayAmount: pick([
+    "$20 Specialist Copay",
+    "$35 Specialist Copay",
+    "$50 Specialist Copay",
+    "$0 (Deductible Met)",
+    "20% Coinsurance"
+  ]),
+  hasPriorAuth: Math.random() < 0.5
+};*/
 
 // Score and stage tracking
 let currentStageIndex = 0;
